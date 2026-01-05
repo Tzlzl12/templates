@@ -23,7 +23,7 @@ git push -u oringin xx-template
 ## current template support list 
 <details>
 <summary>winrs-template</summary>
-* language `rust`
-* description create a window with winit 
-* some thing maybe need to change: `winit` features
+* language `rust`    
+* description create a window with winit     
+* some thing maybe need to change: `winit` features     
 </details>
