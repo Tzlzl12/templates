@@ -1,0 +1,18 @@
+[wokwi]
+version = 1
+firmware = "target/thumbv6m-none-eabi/release/templates"
+
+# 提供 elf 文件加速加载 + 符号调试（强烈推荐）
+elf = "target/thumbv6m-none-eabi/release/templates"
+
+# 可选：启用 RTT 日志输出到 Wokwi 终端（defmt-rtt）
+rttServerPort = 19021 # 默认 RTT 端口，PuTTY/终端连 localhost:19021
+
+# 可选：如果想用 RFC2217 转发 USART 串口（USART2 PA2/PA3 等）
+rfc2217ServerPort = 23000
+
+# 可选：GDB 调试端口（VS Code + probe-rs）
+gdbServerPort = 3333
+
+# 其他可选：模拟慢速/加速
+# slowSimulation = false

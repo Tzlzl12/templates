@@ -1,0 +1,28 @@
+[build]
+target = "thumbv6m-none-eabi"
+
+# 为这个 target 添加 linker script 和其他 flags（可选，但推荐）
+[target.thumbv6m-none-eabi]
+# linker script（如果你的项目有 memory.x 或 link.x，可指定）
+rustflags = [
+  "-C",
+  "link-arg=-Tlink.x",   # 如果有自定义 link.x 文件
+  "-C",
+  "link-arg=-Tmemory.x", # 如果有 memory.x（常见于 Embassy 示例）
+]
+runner = "probe-rs run --chip STM32C031C6Tx --protocol swd"
+
+
+# 可选：如果 probe-rs 需要额外参数（如 connect-under-reset）
+# runner = "probe-rs run --chip STM32C031C6Tx --protocol swd --connect-under-reset"
+
+# 可选：启用更多调试信息（release 模式下也保留一些符号）
+[profile.dev]
+opt-level = "z" # 优化大小
+debug = true
+
+[profile.release]
+opt-level = "z"   # 优化大小（嵌入式常用）
+debug = true      # 保留调试符号，便于 GDB/RTT
+lto = true        # Link Time Optimization，进一步减小二进制
+codegen-units = 1 # 更好优化

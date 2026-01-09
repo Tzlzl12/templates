@@ -1,0 +1,30 @@
+{
+  // 指定默认构建 target（与 .cargo/config.toml 一致）
+  "rust-analyzer.cargo.target": "thumbv6m-none-eabi",
+  // 禁用 allTargets 检查（必须！否则 no_std 项目报错）
+  "rust-analyzer.check.allTargets": false,
+  "rust-analyzer.cargo.allTargets": false,
+  // 可选：启用 clippy 检查（更好 lint），如果 Cargo.toml 有 clippy feature
+  // // 可选：额外检查参数（指定 target，避免 std 依赖）
+  // "rust-analyzer.checkOnSave.extraArgs": [
+  //   "--target",
+  //   "thumbv6m-none-eabi"
+  // ],
+  // 如果你的 Embassy 项目有特定 feature（如 "stm32c031c6"），这里启用
+  // "rust-analyzer.cargo.features": [
+  //   "stm32c031c6",
+  //   "time",
+  //   "time-driver-any",
+  //   "exti",
+  //   "defmt"
+  // ],
+  // 可选：如果项目有多个子 crate 或 linked project（Embassy 常见），指定 main Cargo.toml
+  // "rust-analyzer.linkedProjects": [
+  //   "./Cargo.toml"
+  // ],
+  "rust-analyzer.procMacro.enable": true, // 支持 proc-macro（如 embassy-macros）
+  // 针对嵌入式：禁用一些不必要的检查，提高性能
+  "rust-analyzer.diagnostics.disabled": [
+    "unresolved-proc-macro" // 如果 proc-macro 报错多，可临时禁用
+  ]
+}

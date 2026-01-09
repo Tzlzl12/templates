@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "author": "Your Name - STM32C031C6 with SSD1306 OLED",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-st-nucleo-c031c6",
+      "id": "nucleo",
+      "top": -100,
+      "left": -200,
+      "attrs": {
+        "size": "large"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 50,
+      "left": 100,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 120,
+      "left": 100,
+      "attrs": {
+        "color": "blue",
+        "label": "Button"
+      }
+    },
+    {
+      "type": "wokwi-mpu6050",
+      "id": "mpu",
+      "top": -150,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -102.46,
+      "left": 153.83,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 200,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-logic-analyzer",
+      "id": "logic",
+      "top": 100,
+      "left": 500,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "nucleo:GND.1",
+      "led1:C",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:PA7",
+      "led1:A",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:GND.1",
+      "btn1:1.l",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:PA6",
+      "btn1:2.r",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:PB8",
+      "mpu:SCL",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:PB9",
+      "mpu:SDA",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:3V3",
+      "mpu:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:GND.1",
+      "mpu:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:PB8",
+      "oled1:SCL",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:PB9",
+      "oled1:SDA",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:3V3",
+      "oled1:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:GND.1",
+      "oled1:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:PA8",
+      "servo1:PWM",
+      "orange",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:5V",
+      "servo1:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:GND.1",
+      "servo1:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:PB8",
+      "logic:D0",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "nucleo:PB9",
+      "logic:D1",
+      "green",
+      [
+        "v0"
+      ]
+    ]
+  ],
+  "dependencies": {}
+}
